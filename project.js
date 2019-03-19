@@ -48,61 +48,60 @@ const isOdd = (n)=> {
 
 const numberIdentifier = (n)=> {
   var
-    case1=[],case1_dup=[],overallArray,addedArray,counter
+    case1,case1_dup=[],addedArray,counter
 
   for (num=0; num<=n; num++) {
+    case1=[]
     if (isFizzbuzz(num) && isEven(num)) {
-      case1.push([num,"even","fizzBuzz"]);
+      case1.push("even","fizzBuzz");
       case1_dup.push("even","fizzBuzz");
     }
     else if (isFizzbuzz(num) && isOdd(num)) {
-      case1.push([num,"odd","fizzBuzz"]);
+      case1.push("odd","fizzBuzz");
       case1_dup.push("odd","fizzBuzz");
     }
     else if (isBuzz(num) && isOdd(num) && isPrime(num)) {
-      case1.push([num,"odd","prime","buzz"]);
+      case1.push("odd","prime","buzz");
       case1_dup.push("odd","prime","buzz");
     }
     else if (isFizz(num) && isOdd(num) && isPrime(num)){
-      case1.push([num,"odd","prime","fizz"]);
+      case1.push("odd","prime","fizz");
       case1_dup.push("odd","prime","fizz");
     }
     else if (isBuzz(num) && isOdd(num)) {
-      case1.push([num,"odd","buzz"]);
+      case1.push("odd","buzz");
       case1_dup.push("odd","buzz");
     }
     else if (isFizz(num) && isOdd(num)) {
-      case1.push([num,"odd","fizz"]);
+      case1.push("odd","fizz");
       case1_dup.push("odd","fizz");
     }
     else if (isBuzz(num) && isEven(num)) {
-      case1.push([num,"even","buzz"]);
+      case1.push("even","buzz");
       case1_dup.push("even","buzz");
     }
     else if (isFizz(num) && isEven(num)) {
-      case1.push([num,"even","fizz"]);
+      case1.push("even","fizz");
       case1_dup.push("even","fizz");
     }
     else if (isOdd(num) && isPrime(num)) {
-      case1.push([num,"odd","prime"]);
+      case1.push("odd","prime");
       case1_dup.push("odd","prime");
     }
     else if (isEven(num) && isPrime(num)) {
-      case1.push([num,"even","prime"]);
+      case1.push("even","prime");
       case1_dup.push("even","prime");
     }
     else if (isOdd(num)) {
-      case1.push([num,"odd"])
+      case1.push("odd")
       case1_dup.push("odd");
     }
     else {
-      case1.push([num,"even"])
+      case1.push("even")
       case1_dup.push("even");
     }
+    console.log(num,case1);
   }
-
-  overallArray=(case1);
-  console.log(overallArray);
   addedArray=case1_dup;
   return addedArray;
 }
