@@ -1,59 +1,59 @@
-const isPrime =(n)=>{//checks if the current number provided is prime
+const isPrime =(n)=>{
   var num;
   if (n < 2) {
-    return false;//returns false if the number is less than 2,since 2 is the first prime number
+    return false;
   }
-  for (num=2; num<n;num++) {//iterates through and returns true for prime number
+  for (num=2; num<n;num++) {
     if (n%num===0)
     return false;
   }
   return true;
 }
 
-const isEven = (n)=> {//checks if the current number provided is even
+const isEven = (n)=> {
   if (n%2!==0) {
     return false;
     }
-    return true;//returns true if condition is passed
+    return true;
 
   }
 
-const isOdd = (n)=> {//checks if number is odd
+const isOdd = (n)=> {
   if (n%2===0) {
     return false;
     }
-    return true;//returns true if condition is passed
+    return true;
 
   }
 
-  const isFizzbuzz = (n)=> {//checks if number is divisible by 3 and by 5(fizzbuzz number)
+  const isFizzbuzz = (n)=> {
     if ((num%3!==0)||(num%5!==0)) {
       return false;
     }
-    return true;//returns true if conditioned is passed
+    return true;
   }
-  const isFizz = (n)=> {//checks if number is divisible by 3 only(fizz number)
+  const isFizz = (n)=> {
     if ((num%3!==0)) {
       return false;
     }
-    return true;//returns true if conditoned is passed
+    return true;
   }
-  const isBuzz = (n)=> {//checks if number is divisible by 5 only(buzz number)
+  const isBuzz = (n)=> {
     if ((num%5!==0)) {
       return false;
     }
-    return true;//returns true if condition is passed
+    return true;
   }
 
 
-const numberIdentifier = (n)=> {//checks through given numbers from 0 to maximum number while printing their corresponding identifiers
+const numberIdentifier = (n)=> {
   var
-    case1=[],case1_dup=[],overallArray=[],addedArray=[],counter
+    case1=[],case1_dup=[],overallArray,addedArray,counter
 
-  for (num=0; num<=n; num++) {//iterates through the numbers starting from 0
+  for (num=0; num<=n; num++) {
     if (isFizzbuzz(num) && isEven(num)) {
-      case1.push([num,"even","fizzBuzz"]);//pushes the number(s) and its identifiers to an empty array called case1 if the condition is passed
-      case1_dup.push("even","fizzBuzz");//pushed only the identifiers to a different empty array(case1_dup), this will make it easy to count the occurrences of the identifiers
+      case1.push([num,"even","fizzBuzz"]);
+      case1_dup.push("even","fizzBuzz");
     }
     else if (isFizzbuzz(num) && isOdd(num)) {
       case1.push([num,"odd","fizzBuzz"]);
@@ -101,35 +101,25 @@ const numberIdentifier = (n)=> {//checks through given numbers from 0 to maximum
     }
   }
 
-  overallArray.push(case1);
+  overallArray=(case1);
   console.log(overallArray);
-  /*pushes the arrays with the numbers and there identifiers to a single array called overallArray,
-  all numbers which pass a specific condition are grouped in one array and then pushed to the overall array
-  which which lead to formation of a 2D nested array.
-  */
   addedArray=case1_dup;
   return addedArray;
-  /*the arrays with only the identifiers are added to form a single array called addedArray
-  this makes counting the occurrences of the identifiers easy
-  */
 }
-var array=numberIdentifier(100);//declares a variable array to hold result of the function numberIdentifier upto 100
+var array=numberIdentifier(100);
 
 
-const counter =(array) => {//counts the occurrences of the identifiers
+const counter =(array) => {
   var count = [];
 
   for (var i = 0; i < array.length; i++) {
-    /*iterates through an array starting from element at first position and keeps count of
-    the number of occurrences of different identifiers until everything in the array has been counted
-    */
     if (count[array[i]]) {
     count[array[i]] += 1;
     } else {
     count[array[i]] = 1;
    }
 }
-return count;//returns the number of occurrences of each element
+return count;
 
 }
 counter(array);
